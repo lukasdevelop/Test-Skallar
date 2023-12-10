@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nodejs:
+    build:
+      context: ./docker/nodejs
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./app:/app
+    command: npm run dev #Iniciando em Desenvolvimento ( Starting in Dev) 
+
+  mongodb:
+    build: 
+      context: ./docker/mongodb
+      dockerfile: Dockerfile
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
