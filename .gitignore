@@ -1,4 +1,4 @@
 node_modules
 .env
-/app/dist/
+app/dist/
 data/
