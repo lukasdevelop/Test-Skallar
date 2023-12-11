@@ -6,9 +6,16 @@
     "baseUrl": "./src",
     "outDir": "./dist",
     "strict": true,
+    "paths": {
+      "@/*":["./src/*"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "types": [
+      "vitest/globals"
+    ],
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
