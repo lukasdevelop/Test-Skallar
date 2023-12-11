@@ -1,21 +1,33 @@
 version: '3'
 services:
+  mongodb:
+    build: 
+      context: ./docker/mongodb
+      dockerfile: Dockerfile 
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: skallar
+      MONGO_INITDB_DATABASE: mongo
+      MONGO_REPLICA_HOST: mongodb
+      MONGO_REPLICA_PORT: 27017
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    networks:
+      - my_network
+
   nodejs:
     build:
       context: ./docker/nodejs
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-
     volumes:
       - ./app:/app
-    command: npm run dev #Iniciando em Desenvolvimento ( Starting in Dev) 
-
-  mongodb:
-    build: 
-      context: ./docker/mongodb
-      dockerfile: Dockerfile
-    ports:
-      - "27017:27017"
-    volumes:
-      - ./data:/data/db
+    command: npm run dev
+    networks:
+      - my_network
+networks:
+  my_network:
+    driver: bridge

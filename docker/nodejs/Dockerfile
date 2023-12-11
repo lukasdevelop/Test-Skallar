@@ -1,13 +1,13 @@
-FROM node:14-alpine
+FROM node:latest
 
 WORKDIR /app
 
 COPY package*.json ./
 
+RUN npm init -y
+
 RUN npm install
 
 COPY . .
-
-RUN npm run build
 
 EXPOSE 3000

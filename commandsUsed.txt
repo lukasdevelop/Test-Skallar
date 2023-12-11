@@ -1,0 +1,13 @@
+# Rodar o esquema do Prisma para MongoDB
+
+npx prisma db push --schema=./app/prisma/schema.prisma
+
+npx prisma generate
+
+# Logs do container NodeJS
+
+docker-compose logs nodejs
+
+docker-compose logs -f
+
+ 
