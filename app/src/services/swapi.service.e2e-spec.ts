@@ -1,5 +1,4 @@
 import { SwapiService } from './swapi.service'
-import {expect, it, describe, beforeAll} from 'vitest'
 
 describe('SwapiService Integration Test', () => {
     let swapiService: SwapiService
@@ -9,7 +8,7 @@ describe('SwapiService Integration Test', () => {
     })
 
   it('should fetch all characters from the SWAPI', async () => {
-        const result = await swapiService.fetchAllCharacters()
+        const result = await swapiService.execute()
 
         expect(result.length).toBeGreaterThan(0)
     }, 15000)

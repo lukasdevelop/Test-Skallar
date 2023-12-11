@@ -7,8 +7,9 @@ export class SwapiService {
         this.apiBaseUrl = 'https://swapi.dev/api';
     }
 
-    async fetchAllCharacters(){
+    // Lista todos os personagens da API
+    async execute<T>(): Promise<T[]>{
         const response = await axios.get(`${this.apiBaseUrl}/people/`);
-        return response.data.results;
+        return response.data.results as T[];
     }
 } 
