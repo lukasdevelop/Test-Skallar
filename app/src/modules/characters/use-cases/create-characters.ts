@@ -1,15 +1,45 @@
+import { SwapiService } from "@/services/swapi.service";
 import { CharactersRepository } from "../repositories/characters.repository";
 import { inject, injectable } from "tsyringe";
+import { Characters } from "../entities/characters";
 
-//@injectable 'e o decorator que sinaliza que aqui sera injectado uma dependencia do tsyringe assim
-//como o decorator @inject
+// O decorator @injectable sinaliza que esta classe aceita injeção de dependência do tsyringe
 @injectable()
 export class CreateCharactersUseCase {
-    constructor(@inject("CharactersRepository") private charsRepository: CharactersRepository){}
+    private api: SwapiService;
 
-    //funcao unica para persistir os dados no banco
-    async execute(){
-        const characters = await this.charsRepository.create()
-        return characters
+    // Injeta a implementação do CharactersRepository no construtor
+    constructor(@inject("CharactersRepository") private charsRepository: CharactersRepository) {
+        this.api = new SwapiService(); // Inicializa a instância do SwapiService
+    }
+
+    /**
+     * Executa a lógica principal do caso de uso.
+     * @param api Um array opcional do tipo Characters proveniente de uma fonte externa.
+     */
+    async execute(api?: Characters[]): Promise<void> {
+        // Se nenhum array for passado, chama a função para mapear e obter dados da API externa
+        const charactersFromApi = api || await this.toEntity();
+
+        // Chama o método createFromApi no repositório para persistir os personagens
+        await this.charsRepository.createFromApi(charactersFromApi);
+    }
+
+    /**
+     * Converte os dados da API externa (Swapi) para o tipo Characters.
+     * @returns Um array de objetos Characters mapeados a partir da API externa.
+     */
+    private async toEntity(): Promise<Characters[]> {
+        // Chama o serviço Swapi para obter dados da API externa já tipados como Characters
+        const apiExterna = await this.api.execute<Characters>();
+
+        // Realiza o mapeamento para o tipo da entidade Character
+        const characters: Characters[] = apiExterna.map((char) => ({
+            name: char.name,
+            height: char.height,
+            gender: char.gender
+        }));
+
+        return characters;
     }
 }
