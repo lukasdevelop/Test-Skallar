@@ -7,13 +7,13 @@ export class InMemoryCharactersRepository implements CharactersRepository {
 
     async createFromApi(characters: Characters[]): Promise<boolean> {
         //Adiciono somente novos items da API, assim nao repetindo os que ja existem por Nome
-        characters.forEach((apiItem) => {
-            if(!this.items.some((item) => item.name === apiItem.name)){
-                this.items.push(apiItem)
-            }
-        })
+        const newCharacters = characters.filter(
+            (newChar) => !this.items.some(existingChar => existingChar.name === newChar.name)
+        )
+        
+        this.items.push(...newCharacters)
 
-        return true
+        return newCharacters.length > 0
     }
 
     findOrderByName(): Promise<Characters[]> {
