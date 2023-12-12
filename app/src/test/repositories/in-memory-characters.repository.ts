@@ -5,7 +5,7 @@ export class InMemoryCharactersRepository implements CharactersRepository {
 
     public items: Characters[] = []
 
-    async createFromApi(characters: Characters[]): Promise<void> {
+    async createFromApi(characters: Characters[]): Promise<boolean> {
         //Adiciono somente novos items da API, assim nao repetindo os que ja existem por Nome
         characters.forEach((apiItem) => {
             if(!this.items.some((item) => item.name === apiItem.name)){
@@ -13,10 +13,10 @@ export class InMemoryCharactersRepository implements CharactersRepository {
             }
         })
 
-        return Promise.resolve()
+        return true
     }
 
-    findByName(): Promise<Characters[]> {
+    findOrderByName(): Promise<Characters[]> {
         throw new Error('Method not implemented.');
     }
 
