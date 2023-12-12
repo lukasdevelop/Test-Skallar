@@ -17,6 +17,6 @@
       "vitest/globals"
     ],
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "test/use-cases/create-characters.spec.ts", "test/services/swapi.service.e2e-spec.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-import { SwapiService } from './swapi.service'
+import { SwapiService } from '../../src/services/swapi.service'
 
 describe('SwapiService Integration Test', () => {
     let swapiService: SwapiService

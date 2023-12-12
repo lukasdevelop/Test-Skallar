@@ -1,7 +1,7 @@
 import "reflect-metadata"
-import { CreateCharactersUseCase } from "./create-characters"
-import { CharactersRepository } from "../repositories/characters.repository"
-import { PrismaCharactersRepository } from "../repositories/implementations/prisma-characters.repository"
+import { CreateCharactersUseCase } from "../../src/modules/characters/use-cases/create-characters"
+import { CharactersRepository } from "../../src/modules/characters/repositories/characters.repository"
+import { PrismaCharactersRepository } from "../../src/shared/infra/database/prisma/repositories/prisma-characters.repository"
 import { SwapiService } from "services/swapi.service"
 import { PrismaClient } from "@prisma/client"
 

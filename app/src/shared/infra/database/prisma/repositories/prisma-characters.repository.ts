@@ -1,6 +1,6 @@
-import { Characters } from "../../../../modules/characters/entities/characters";
-import { CharactersRepository } from "../characters.repository";
-import { SwapiService } from "../../../../services/swapi.service";
+import { Characters } from "../../../../../modules/characters/entities/characters";
+import { CharactersRepository } from "../../../../../modules/characters/repositories/characters.repository";
+import { SwapiService } from "../../../../../services/swapi.service";
 import { PrismaClient } from "@prisma/client";
 
 export class PrismaCharactersRepository implements CharactersRepository {

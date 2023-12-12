@@ -1,5 +1,5 @@
 import { CharactersRepository } from '../../modules/characters/repositories/characters.repository'
-import { PrismaCharactersRepository } from '../../modules/characters/repositories/implementations/prisma-characters.repository'
+import { PrismaCharactersRepository } from '../infra/database/prisma/repositories/prisma-characters.repository'
 import { container } from 'tsyringe'
 
 //Uso o Tsyringe para injecao de depndencias, para melhorar a legibilidade do codigo
