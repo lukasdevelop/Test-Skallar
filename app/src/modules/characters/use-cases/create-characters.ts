@@ -1,4 +1,4 @@
-import { SwapiService } from "@/services/swapi.service";
+import { SwapiService } from "../../../services/swapi.service";
 import { CharactersRepository } from "../repositories/characters.repository";
 import { inject, injectable } from "tsyringe";
 import { Characters } from "../entities/characters";
@@ -21,8 +21,13 @@ export class CreateCharactersUseCase {
         // Se nenhum array for passado, chama a função para mapear e obter dados da API externa
         const charactersFromApi = api || await this.toEntity();
 
-        // Chama o método createFromApi no repositório para persistir os personagens
-        await this.charsRepository.createFromApi(charactersFromApi);
+          // Chama o método createFromApi no repositório para persistir os personagens
+          const charactersCreated = await this.charsRepository.createFromApi(charactersFromApi);
+
+          if (!charactersCreated) {
+              throw new Error("No new characters to create");
+          }
+
     }
 
     /**
