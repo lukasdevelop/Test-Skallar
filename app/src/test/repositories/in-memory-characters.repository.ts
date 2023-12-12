@@ -16,8 +16,10 @@ export class InMemoryCharactersRepository implements CharactersRepository {
         return newCharacters.length > 0
     }
 
-    findOrderByName(): Promise<Characters[]> {
-        throw new Error('Method not implemented.');
+    async findOrderByName(): Promise<Characters[]> {
+        // Implementação simples que ordena os personagens pelo nome
+        const orderedCharacters = [...this.items].sort((a, b) => a.name.localeCompare(b.name));
+        return Promise.resolve(orderedCharacters);
     }
 
 
