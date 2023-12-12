@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "target": "es2020",
+    "sourceMap": true,
     "experimentalDecorators": true,
     "module": "commonjs",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "outDir": "./dist",
     "strict": true,
     "paths": {
@@ -17,6 +18,6 @@
       "vitest/globals"
     ],
   },
-  "include": ["src/**/*.ts", "test/use-cases/create-characters.spec.ts", "test/services/swapi.service.e2e-spec.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
