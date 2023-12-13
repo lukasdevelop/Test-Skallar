@@ -46,17 +46,17 @@ Certifique-se de ter o Docker instalado no seu ambiente.
     Mantenha o valor das variaveis atuais é para o banco de desenvolvimento
    ```
 
-3. Execute os containers do Docker:
-
-   ```bash
-   docker-compose up -d
-   ```
-
 3. Instale as dependencias:
 
    ```bash
    cd app
    npm install
+   ```
+
+4. Execute os containers do Docker:
+
+   ```bash
+   docker-compose up -d
    ```
 
    Isso iniciará o servidor em `http://localhost:3000`. Os endpoints estarão acessíveis no caminho `/characters`.
