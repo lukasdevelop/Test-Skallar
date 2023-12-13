@@ -99,7 +99,7 @@ A documentação da API pode ser acessada em:
 
 ## Banco de Dados MongoDB
 
-O projeto utiliza um banco de dados MongoDB. Certifique-se de ter o Docker e o Docker Compose instalados para executar o container do MongoDB.
+O projeto utiliza um banco de dados MongoDB. Certifique-se de ter o Docker e o Docker Compose instalados para executar o container do MongoDB. E o Prisma [http://prisma.io] como ODM Object Document Model.
 
 ## Agradecimento
 
