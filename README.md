@@ -97,7 +97,7 @@ A documentação da API pode ser acessada em:
 
 - **Swagger:** [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
-## Banco de Dados MongoDB
+## Banco de Dados MongoDB e ODM Prisma
 
 O projeto utiliza um banco de dados MongoDB. Certifique-se de ter o Docker e o Docker Compose instalados para executar o container do MongoDB. E o Prisma [http://prisma.io] como ODM Object Document Model.
 
