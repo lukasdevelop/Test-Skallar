@@ -39,13 +39,20 @@ Certifique-se de ter o Docker instalado no seu ambiente.
    cd test-skallar
    ```
 
-2. Execute os containers do Docker:
+2. Variaveis de ambiente:
+
+   ```bash
+    Localize o arquivo .env.example e renomeio para .env 
+    Mantenha o valor das variaveis atuais é para o banco de desenvolvimento
+   ```
+
+3. Execute os containers do Docker:
 
    ```bash
    docker-compose up -d
    ```
 
-   Isso iniciará o servidor em `http://localhost:3000`. Os endpoints estarão acessíveis no caminho `/api`.
+   Isso iniciará o servidor em `http://localhost:3000`. Os endpoints estarão acessíveis no caminho `/characters`.
    O Dockerfile esta configurado para executar os comando de npm install e subir o servidor em modo DEV
 
 ## Testes
@@ -74,7 +81,7 @@ O projeto utiliza [Vitest](https://github.com/vitejs/vitest) para execução de 
 
 A documentação da API pode ser acessada em:
 
-- **Swagger:** [http://localhost:3000/api/swagger](http://localhost:3000/api/swagger)
+- **Swagger:** [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
 ## Banco de Dados MongoDB
 
