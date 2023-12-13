@@ -5,11 +5,11 @@ Este é um projeto modular com arquitetura limpa (Clean Architecture) desenvolvi
 ## Funcionalidades
 Leitura de Informações da API Star Wars:
 
-Um script/API que lê informações sobre personagens da API Star Wars (nome, altura e gênero) e as armazena em uma collection do MongoDB.
+Um endpoint que lê informações sobre personagens da API Star Wars (nome, altura e gênero) e as armazena em uma collection do MongoDB.
 
 Recuperação e Ordenação dos Personagens:
 
-Um script/API que recupera a lista de personagens armazenados no MongoDB, ordena-os alfabeticamente pelo nome e apresenta os resultados.
+Um endpoint que recupera a lista de personagens armazenados no MongoDB, ordena-os alfabeticamente pelo nome e apresenta os resultados.
 
 ## Estrutura do Projeto
 
