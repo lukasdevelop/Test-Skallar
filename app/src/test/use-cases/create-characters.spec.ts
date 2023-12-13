@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { CreateCharactersUseCase } from "../../modules/characters/use-cases/create-characters";
 import { InMemoryCharactersRepository } from "../repositories/in-memory-characters.repository";
-import { Characters } from "@/modules/characters/entities/characters";
+import { Characters } from "../../modules/characters/entities/characters";
 
 // API Mokada para nao precisar buscar na API Externa
 const apiMock: Characters[] = [

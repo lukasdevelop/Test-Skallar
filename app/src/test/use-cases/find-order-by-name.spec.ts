@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { InMemoryCharactersRepository } from "../repositories/in-memory-characters.repository";
-import { Characters } from "@/modules/characters/entities/characters";
-import { FindOrderByNameUseCase } from "@/modules/characters/use-cases/find-order-by-name";
+import { Characters } from "../../modules/characters/entities/characters";
+import { FindOrderByNameUseCase } from "../../modules/characters/use-cases/find-order-by-name";
 
 describe("Find Characters by Name Use Case", () => {
     let inMemoryCharactersRepository: InMemoryCharactersRepository;
