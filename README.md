@@ -58,6 +58,13 @@ Certifique-se de ter o Docker instalado no seu ambiente.
    ```bash
    docker-compose up -d
    ```
+5. Execute comandos do Prisma ORM para gerar o schema do Prisma e iniciar a collection
+
+   ```bash
+   npx prisma generate --schema=./src/shared/infra/database/prisma/schema.prisma
+
+   npx prisma db push --schema=./src/shared/infra/database/prisma/schema.prisma
+   ```
 
    Isso iniciará o servidor em `http://localhost:3000`. Os endpoints estarão acessíveis no caminho `/characters`.
    O Dockerfile esta configurado para subir o servidor em modo DEV
