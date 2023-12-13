@@ -1,6 +1,15 @@
-# Projeto Clean Architecture em TypeScript
+# Sistema de Integração com API Star Wars
 
 Este é um projeto modular com arquitetura limpa (Clean Architecture) desenvolvido em TypeScript, seguindo os princípios SOLID. O objetivo é criar uma aplicação bem estruturada, modular e fácil de manter.
+
+## Funcionalidades
+Leitura de Informações da API Star Wars:
+
+Um script/API que lê informações sobre personagens da API Star Wars (nome, altura e gênero) e as armazena em uma collection do MongoDB.
+
+Recuperação e Ordenação dos Personagens:
+
+Um script/API que recupera a lista de personagens armazenados no MongoDB, ordena-os alfabeticamente pelo nome e apresenta os resultados.
 
 ## Estrutura do Projeto
 
@@ -23,7 +32,14 @@ O projeto utiliza o [Tsyringe](https://github.com/microsoft/tsyringe) para inje�
 
 Certifique-se de ter o Docker instalado no seu ambiente.
 
-1. Execute os containers do Docker:
+1. Clone o Repositório:
+
+   ```bash
+   git clone https://github.com/lukasdevelop/test-skallar.git
+   cd test-skallar
+   ```
+
+2. Execute os containers do Docker:
 
    ```bash
    docker-compose up -d
