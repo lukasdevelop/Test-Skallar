@@ -36,11 +36,16 @@ describe("Find Characters by Name Use Case", () => {
         
         // Act
         const result = await sut.execute();
-        console.log(inMemoryCharactersRepository.items)
-
         // Assert
         expect(result.length).toBe(3);
         //Amanda letra A char2 retorna na primeira posicao
         expect(result[0]).toEqual(char2);
+    });
+
+    it("should return a not found characters", async () => {
+                
+        // Act e Assert
+        await expect(sut.execute()).rejects.toThrow("No characters")
+        
     });
 });
