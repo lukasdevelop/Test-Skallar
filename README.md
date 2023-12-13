@@ -19,21 +19,18 @@ O projeto utiliza o [Tsyringe](https://github.com/microsoft/tsyringe) para inje�
 
 ## Execução do Projeto
 
-Para executar o projeto, siga as etapas abaixo:
+### Pré-requisitos
 
-1. Instale as dependências:
+Certifique-se de ter o Docker instalado no seu ambiente.
 
-   ```bash
-   npm install
-   ```
-
-2. Execute o projeto em modo de desenvolvimento:
+1. Execute os containers do Docker:
 
    ```bash
-   npm run dev
+   docker-compose up -d
    ```
 
    Isso iniciará o servidor em `http://localhost:3000`. Os endpoints estarão acessíveis no caminho `/api`.
+   O Dockerfile esta configurado para executar os comando de npm install e subir o servidor em modo DEV
 
 ## Testes
 
@@ -63,8 +60,14 @@ A documentação da API pode ser acessada em:
 
 - **Swagger:** [http://localhost:3000/api/swagger](http://localhost:3000/api/swagger)
 
+## Banco de Dados MongoDB
+
+O projeto utiliza um banco de dados MongoDB. Certifique-se de ter o Docker e o Docker Compose instalados para executar o container do MongoDB.
+
 ## Agradecimento
 
-Obrigado pela oportunidade! 
+Obrigado pela oportunidade de realizar esse teste.
 
 ---
+By
+Lucas Amaral
