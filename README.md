@@ -55,6 +55,7 @@ Certifique-se de ter o Docker instalado no seu ambiente.
 3. Instale as dependencias:
 
    ```bash
+   cd app
    npm install
    ```
 
