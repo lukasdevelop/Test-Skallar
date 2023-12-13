@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/src/shared/infra/http/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/shared/infra/http/server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
