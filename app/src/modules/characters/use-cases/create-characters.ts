@@ -2,6 +2,7 @@ import { SwapiService } from "../../../services/swapi.service";
 import { CharactersRepository } from "../repositories/characters.repository";
 import { inject, injectable } from "tsyringe";
 import { Characters } from "../entities/characters";
+import { NoNewCharactersError } from "../../../modules/errors/no-new-characters-error";
 
 // O decorator @injectable sinaliza que esta classe aceita injeção de dependência do tsyringe
 @injectable()
@@ -25,7 +26,7 @@ export class CreateCharactersUseCase {
           const charactersCreated = await this.charsRepository.createFromApi(charactersFromApi);
 
           if (!charactersCreated) {
-              throw new Error("No new characters to create");
+            throw new NoNewCharactersError()
           }
 
     }

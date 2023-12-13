@@ -1,6 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { Characters } from "../entities/characters";
 import { CharactersRepository } from "../repositories/characters.repository";
+import { NoCharactersFoundError } from "../../errors/no-characters-found-error";
 
 // O decorator @injectable sinaliza que essa classe pode receber injeção de dependência do tsyringe
 @injectable()
@@ -17,7 +18,7 @@ export class FindOrderByNameUseCase {
         const characters = await this.characterRepository.findOrderByName();
 
         if(characters.length === 0) {
-            throw new Error("No characters");
+            throw new NoCharactersFoundError()
         }
 
         return characters;
