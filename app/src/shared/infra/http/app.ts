@@ -5,11 +5,13 @@
  */
 import "reflect-metadata"
 import "express-async-errors"
-import express, { NextFunction, Request, Response } from 'express'
+import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import "../../container"
 import { router } from "./routes"
+import swaggerUi from 'swagger-ui-express'
+import swaggerFile from '../../../../swagger.json'
 import { errorMiddleware } from "./middlewares/error"
 
 //Permitir variaves de ambiente
@@ -23,6 +25,9 @@ app.use(cors())
 
 // Middleware para processar o corpo da solicitação como JSON
 app.use(express.json())
+
+//Documentacao da API atraves do SWAGGER acesso na url: http://localhost:3000/api-docs
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // Roteia solicitações para as rotas definidas
 app.use(router)

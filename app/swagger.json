@@ -1,0 +1,108 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Teste para SKALLAR",
+      "description": "This is an API Teste to Skallar",
+      "version": "1.0.0",
+      "contact": {
+        "email": "analista.sistemas.lucas@gmail.com"
+      }
+    },
+    "paths": {
+      "/characters": {
+        "get": {
+          "tags": ["Characters"],
+          "summary": "List Characters by name",
+          "description": "List all Characters order by name",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "height": {
+                          "type": "string"
+                        },
+                        "gender": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "No Characters Found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "errors": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "error": {
+                              "type": "string",
+                              "description": "No characters found. The repository is empty."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": ["Characters"],
+          "summary": "Create a new Character",
+          "description": "Fetch data from the external API and create a new Character with the given details",
+          "responses": {
+            "200": {
+              "description": "Character created successfully"
+            },
+            "404": {
+              "description": "No Characters Found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "errors": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "error": {
+                              "type": "string",
+                              "description": "No characters found. The repository is empty."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
