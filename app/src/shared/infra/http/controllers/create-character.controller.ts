@@ -1,22 +1,24 @@
-import { Request, Response } from "express";
-import { CreateCharactersUseCase } from "../../../../modules/characters/use-cases/create-characters";
-import { container } from "tsyringe";
+import { Request, Response } from "express"
+import { CreateCharactersUseCase } from "../../../../modules/characters/use-cases/create-characters"
+import { container } from "tsyringe"
 
+/**
+ * Controlador responsável por lidar com as solicitações de criação de personagens.
+ */
 export class CreateCharacterController {
+    /**
+     * Manipulador da solicitação para criar personagens.
+     * @param request Objeto Request da solicitação HTTP.
+     * @param response Objeto Response para enviar a resposta HTTP.
+     */
     async handle(request: Request, response: Response){
+        // Obtém uma instância do caso de uso de criação de personagens
         const createUseCase = container.resolve(CreateCharactersUseCase)
+        
+        // Executa o caso de uso para criar personagens
+        await createUseCase.execute()
 
-        try {
-            await createUseCase.execute();
-            return response.status(200).json({ message: "Characters created successfully" });
-            
-        } catch (error) {
-            if (error instanceof Error && error.message === "No new characters to create") {
-
-                return response.status(200).json({ message: "No new characters to create" });
-            }
-            // Outros erros podem ser tratados de acordo com as necessidades
-            return response.status(500).json({ error: "Internal Server Error" });
-        }
+        // Retorna uma resposta JSON indicando o sucesso da criação
+        return response.status(200).json({ message: "Characters created successfully" })
     }
 }
