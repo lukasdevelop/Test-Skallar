@@ -52,8 +52,14 @@ Certifique-se de ter o Docker instalado no seu ambiente.
    docker-compose up -d
    ```
 
+3. Instale as dependencias:
+
+   ```bash
+   npm install
+   ```
+
    Isso iniciará o servidor em `http://localhost:3000`. Os endpoints estarão acessíveis no caminho `/characters`.
-   O Dockerfile esta configurado para executar os comando de npm install e subir o servidor em modo DEV
+   O Dockerfile esta configurado para subir o servidor em modo DEV
 
 ## Testes
 
